@@ -1,5 +1,6 @@
-var express = require('express');
-var app = express();
+const express = require('express'),
+      app = express(),
+      port = process.env.PORT || 3000;
 var player_module = require('./player_module');
 var log = '';
 var player1 = player_module("niv" , 10);
@@ -57,12 +58,5 @@ app.get('/', function (req, res) {
    
 })
 
-var server = app.listen(8080, function () {
-   var host = server.address().address
-   var port = server.address().port
-   
-   console.log("App listening at port:%s", port)
-
-})
-
-//console.log(log);
+app.listen(port);
+console.log(`listen on port ${port}`);
